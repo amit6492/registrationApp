@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="details"
+            type="com.example.registrationapp.viewmodel.RegistrationViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/heading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:fontFamily="@font/abril_fatface"
+            android:text="S."
+            android:textColor="#FF7F50"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sub_heading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/sub_heading"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/heading"
+            app:layout_constraintStart_toStartOf="@id/heading"
+            app:layout_constraintTop_toBottomOf="@+id/heading"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pan_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/sub_heading"
+            app:layout_constraintEnd_toEndOf="@id/sub_heading"
+            app:layout_constraintTop_toBottomOf="@id/sub_heading"
+            android:layout_marginTop="50dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:text="@string/pan_number"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/pan_card_entry"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:textCursorDrawable="@drawable/cursor_selector"
+            android:background="@drawable/rectangle_2dp"
+            android:text="@={details.editTextContent}"
+            app:layout_constraintEnd_toEndOf="@id/sub_heading"
+            app:layout_constraintStart_toStartOf="@id/sub_heading"
+            app:layout_constraintTop_toBottomOf="@id/pan_text" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/birthdate_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/sub_heading"
+            app:layout_constraintEnd_toEndOf="@id/sub_heading"
+            app:layout_constraintTop_toBottomOf="@id/pan_card_entry"
+            android:layout_marginTop="50dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:text="@string/birthdate"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/date_entry"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rectangle_2dp"
+            android:inputType="numberSigned"
+            android:textCursorDrawable="@drawable/cursor_selector"
+            android:maxLength="2"
+            android:gravity="center"
+            android:text="@={details.dayContent}"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/pan_card_entry"
+            app:layout_constraintEnd_toStartOf="@id/month_entry"
+            app:layout_constraintTop_toBottomOf="@id/birthdate_text" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/month_entry"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:inputType="numberSigned"
+            android:maxLength="2"
+            android:textCursorDrawable="@drawable/cursor_selector"
+            android:background="@drawable/rectangle_2dp"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            android:text="@={details.monthContent}"
+            app:layout_constraintEnd_toStartOf="@+id/year_entry"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/date_entry"
+            app:layout_constraintTop_toTopOf="@id/date_entry"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@id/date_entry"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/year_entry"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/rectangle_2dp"
+            android:inputType="numberSigned"
+            android:maxLength="4"
+            android:gravity="center"
+            android:textCursorDrawable="@drawable/cursor_selector"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            android:text="@={details.yearContet}"
+            app:layout_constraintEnd_toEndOf="@id/pan_card_entry"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/month_entry"
+            app:layout_constraintTop_toTopOf="@id/date_entry"
+            app:layout_constraintBottom_toBottomOf="@id/date_entry"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/error_cta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center_horizontal"
+            android:text="@string/pan_error"
+            android:textSize="18sp"
+            android:textColor="@color/purple_500"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/pan_card_entry"
+            app:layout_constraintRight_toRightOf="@id/pan_card_entry" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/my_button"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="24dp"
+            android:textSize="18sp"
+            android:background="@color/inactive_grey"
+            android:enabled="false"
+            android:text="NEXT"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/error_cta"
+            app:layout_constraintEnd_toEndOf="@id/pan_card_entry"
+            app:layout_constraintStart_toStartOf="@id/pan_card_entry" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

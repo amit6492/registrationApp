@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Registration App</string>
+    <string name="sub_heading">First of the few steps to set you up with a Bank Account</string>
+    <string name="submit_message">Details submitted successfully</string>
+    <string name="pan_error">I don\'t have a PAN</string>
+    <string name="pan_number">PAN NUMBER</string>
+    <string name="birthdate">BIRTHDATE</string>
+</resources>
